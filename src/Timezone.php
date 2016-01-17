@@ -31,7 +31,7 @@ class Timezone
         // Should show int(32400) (for dates after Sat Sep 8 01:00:00 1951 JST).
         $offset = ($timeOffset - $timeOffset2);
 
-        echo $offset;
+        return $offset;
     }
 
 }
