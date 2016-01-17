@@ -12,6 +12,10 @@ class Timezone
      */
     public function getOffset($from_timezone = "", $to_timezone = "")
     {
+        if ($from_timezone === "" || $to_timezone === "") {
+            return 0;
+        }
+        
         // Create two timezone objects, one for Singapore (Taiwan) and one for
         // Tokyo (Jakarta)
         $dateTimeFromZone = new \DateTimeZone($from_timezone);
