@@ -55,7 +55,11 @@ class Timezone
 
         $offset = self::getOffset($from_timezone, $to_timezone);
 
-        // $seconds = $seconds - $offset;
+        if ($offset < 0) {
+            $seconds = $seconds - $offset;
+        } else {
+            $seconds = $seconds - $offset;
+        }
 
         return $seconds;
     }
