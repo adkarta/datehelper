@@ -14,13 +14,13 @@ class Timezone
     {
         // Create two timezone objects, one for Singapore (Taiwan) and one for
         // Tokyo (Jakarta)
-        $dateTimeFromZone = new DateTimeZone($from_timezone);
-        $dateTimeToZone = new DateTimeZone($to_timezone);
+        $dateTimeFromZone = new \DateTimeZone($from_timezone);
+        $dateTimeToZone = new \DateTimeZone($to_timezone);
 
         $date = (new \DateTime())->format('Y-m-d H:i:s');
 
-        $datTimeFrom = new DateTime($date, $dateTimeFromZone);
-        $dateTimeTo = new DateTime($date, $dateTimeToZone);
+        $datTimeFrom = new \DateTime($date, $dateTimeFromZone);
+        $dateTimeTo = new \DateTime($date, $dateTimeToZone);
 
         // Calculate the GMT offset for the date/time contained in the $datTimeFrom
         // object, but using the timezone rules as defined for Tokyo
