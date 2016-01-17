@@ -53,7 +53,7 @@ class Timezone
 
         $seconds = $minutes * 60;
 
-        $offset = $this->getOffset($from_timezone, $to_timezone);
+        $offset = self::getOffset($from_timezone, $to_timezone);
 
         $seconds = $seconds + $offset;
 
