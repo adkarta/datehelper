@@ -34,6 +34,32 @@ class Timezone
         return $offset;
     }
 
+    /**
+     * Calculate duration from and to timezone
+     * @param        string $from_timezone Timezone departure
+     * @param        string $from_datetime departure time
+     * @param        string $to_timezone   Timezone arrival
+     * @param        string $to_datetime   arrival time
+     * @return       integer                duration between departure and arrival in seconds
+     */
+    public function getDuration($from_timezone = "", $from_datetime = "", $to_timezone = "", $to_datetime = "")
+    {
+        $start_date = new \DateTime($from_datetime);
+        $since_start = $start_date->diff(new \DateTime($to_datetime));
+
+        $minutes = $since_start->days * 24 * 60;
+        $minutes += $since_start->h * 60;
+        $minutes += $since_start->i;
+
+        $seconds = $minutes * 60;
+
+        $offset = $this->getOffset($from_timezone, $to_timezone);
+
+        $seconds = $seconds + $offset;
+
+        return $seconds;
+    }
+
 }
 
 ?>
