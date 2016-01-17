@@ -1,0 +1,37 @@
+{
+    "name": "adkarta/datehelper",
+    "homepage": "https://github.com/adkarta/datehelper",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arman D. K",
+            "email": "arman.kartawidjaja@gmail.com",
+            "homepage": "https://github.com/adkarta",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.5.0",
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*",
+    },
+    "autoload": {
+        "psr-4": {
+            "Adkarta\\DateHelper\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Adkarta\\DateHelper\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
