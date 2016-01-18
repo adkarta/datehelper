@@ -16,26 +16,30 @@ class Timezone
             return 0;
         }
         
-        // Create two timezone objects, one for Singapore (Taiwan) and one for
-        // Tokyo (Jakarta)
-        $dateTimeFromZone = new \DateTimeZone($from_timezone);
-        $dateTimeToZone = new \DateTimeZone($to_timezone);
+        try {
+            // Create two timezone objects, one for Singapore (Taiwan) and one for
+            // Tokyo (Jakarta)
+            $dateTimeFromZone = new \DateTimeZone($from_timezone);
+            $dateTimeToZone = new \DateTimeZone($to_timezone);
 
-        $date = (new \DateTime())->format('Y-m-d H:i:s');
+            $date = (new \DateTime())->format('Y-m-d H:i:s');
 
-        $datTimeFrom = new \DateTime($date, $dateTimeFromZone);
-        $dateTimeTo = new \DateTime($date, $dateTimeToZone);
+            $datTimeFrom = new \DateTime($date, $dateTimeFromZone);
+            $dateTimeTo = new \DateTime($date, $dateTimeToZone);
 
-        // Calculate the GMT offset for the date/time contained in the $datTimeFrom
-        // object, but using the timezone rules as defined for Tokyo
-        // ($dateTimeToZone).
-        $timeOffset = $dateTimeToZone->getOffset($datTimeFrom);
-        $timeOffset2 = $dateTimeFromZone->getOffset($dateTimeTo);
+            // Calculate the GMT offset for the date/time contained in the $datTimeFrom
+            // object, but using the timezone rules as defined for Tokyo
+            // ($dateTimeToZone).
+            $timeOffset = $dateTimeToZone->getOffset($datTimeFrom);
+            $timeOffset2 = $dateTimeFromZone->getOffset($dateTimeTo);
 
-        // Should show int(32400) (for dates after Sat Sep 8 01:00:00 1951 JST).
-        $offset = ($timeOffset - $timeOffset2);
+            // Should show int(32400) (for dates after Sat Sep 8 01:00:00 1951 JST).
+            $offset = ($timeOffset - $timeOffset2);
 
-        return $offset;
+            return $offset;
+        } catch (\Exception $e) {
+            return 0;
+        } 
     }
 
     /**
