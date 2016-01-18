@@ -10,7 +10,7 @@ class Timezone
      * @param        string $to_timezone   Timezone arrival
      * @return       seconds                Timezone offset
      */
-    public function getOffset($from_timezone = "", $to_timezone = "")
+    public static function getOffset($from_timezone = "", $to_timezone = "")
     {
         if ($from_timezone === "" || $to_timezone === "") {
             return 0;
@@ -50,7 +50,7 @@ class Timezone
      * @param        string $to_datetime   arrival time
      * @return       integer                duration between departure and arrival in seconds
      */
-    public function getDuration($from_timezone = "", $from_datetime = "", $to_timezone = "", $to_datetime = "")
+    public static function getDuration($from_timezone = "", $from_datetime = "", $to_timezone = "", $to_datetime = "")
     {
         $start_date = new \DateTime($from_datetime);
         $since_start = $start_date->diff(new \DateTime($to_datetime));
