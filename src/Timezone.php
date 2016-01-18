@@ -62,8 +62,10 @@ class Timezone
         $seconds = $minutes * 60;
 
         $offset = self::getOffset($from_timezone, $to_timezone);
-
+        
         if ($offset < 0) {
+            $seconds = $seconds - $offset;
+        } else {
             $seconds = $seconds - $offset;
         }
 
