@@ -65,8 +65,6 @@ class Timezone
 
         if ($offset < 0) {
             $seconds = $seconds - $offset;
-        } else {
-            $seconds = $seconds - $offset;
         }
 
         return $seconds;
